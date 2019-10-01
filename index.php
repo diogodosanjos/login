@@ -15,7 +15,9 @@
 
     <title>Sistema de Login</title>
     <style>
-        #alerta, #caixaSenha, #caixaRegistro{
+        #alerta,
+        #caixaSenha,
+        #caixaRegistro {
             display: none;
         }
     </style>
@@ -159,7 +161,7 @@
                         <p class="text-center">
                             Já registrado?
                             <a href="#" id="btnJaRegistrado2">
-                            <!-- Não pode ter 2 ids iguais na página -->
+                                <!-- Não pode ter 2 ids iguais na página -->
                                 Entrar por aqui
                             </a>
                         </p>
@@ -181,6 +183,26 @@
 
     <script>
         //Código jQuery para mostrar e ocultar os formulários
+        $(function() {
+                    $("#btnEsqueci").click(function() {
+                        $("#caixaLogin").hide(); //Ocultar Login
+                        $("#caixaSenha").show(); //Mostrar Nova Senha
+                    });
+
+                    $("#btnJaRegistrado").click(function() {
+                        $("#caixaSenha").hide(); //Ocultar
+                        $("#caixaLogin").show(); //Mostrar
+                    });
+
+                    $("#btnRegistrarNovo").click(function() {
+                        $("#caixaLogin").hide();
+                        $("#caixarRegistro").show();
+                    });
+
+                    $("#btnRegistrado2").click(function() {
+                        $("#caixaLogin").show();
+                        $("#caixarRegistro").hide();
+                    });
     </script>
 </body>
 
