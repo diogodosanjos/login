@@ -117,7 +117,7 @@
 
                 </form>
             </div>
-        </section>
+        </sectio-5
         <!-- Fim da Seção de Recuperação de Senha -->
 
         <!-- Início do formulário de cadastro de novos usuários -->
@@ -190,7 +190,7 @@
             jQuery.validator.setDefaults({
                 success: "valid"
             });
-            $("#formRegistro").validate({
+            $("#formRegistro").validate({ss
                 rules: {
                     senhaDoUsuario: "required",
                     senhaUsuarioConfirmar: {
