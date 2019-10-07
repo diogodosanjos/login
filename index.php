@@ -117,62 +117,61 @@
 
                 </form>
             </div>
-        </sectio-5
-        <!-- Fim da Seção de Recuperação de Senha -->
+            </sectio-5 <!-- Fim da Seção de Recuperação de Senha -->
 
-        <!-- Início do formulário de cadastro de novos usuários -->
-        <section class="row mt-5">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
-                <h2 class="text-center mt-2">Registre-se aqui</h2>
-                <form action="#" method="post" class="p-2" id="formRegistro">
-                    <div class="form-group">
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
-                    </div>
-
-                    <div class="form-group mt-5">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
-                            <label for="concordar" class="custom-control-label">
-                                Eu concordo com <a href="#"> os termos e condições.</a>
-                            </label>
+            <!-- Início do formulário de cadastro de novos usuários -->
+            <section class="row mt-5">
+                <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
+                    <h2 class="text-center mt-2">Registre-se aqui</h2>
+                    <form action="#" method="post" class="p-2" id="formRegistro">
+                        <div class="form-group">
+                            <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
-                    </div>
+                        <div class="form-group">
+                            <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
+                        </div>
 
-                    <div class="form-group">
-                        <p class="text-center">
-                            Já registrado?
-                            <a href="#" id="btnRegistrado2">
-                                <!-- Não pode ter 2 ids iguais na página -->
-                                Entrar por aqui
-                            </a>
-                        </p>
-                    </div>
+                        <div class="form-group">
+                            <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
+                        </div>
 
-                </form>
+                        <div class="form-group">
+                            <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
+                        </div>
 
-            </div>
-        </section>
-        <!-- Final do formulário de cadastro de novos usuários -->
+                        <div class="form-group">
+                            <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
+                        </div>
+
+                        <div class="form-group mt-5">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
+                                <label for="concordar" class="custom-control-label">
+                                    Eu concordo com <a href="#"> os termos e condições.</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
+                        </div>
+
+                        <div class="form-group">
+                            <p class="text-center">
+                                Já registrado?
+                                <a href="#" id="btnRegistrado2">
+                                    <!-- Não pode ter 2 ids iguais na página -->
+                                    Entrar por aqui
+                                </a>
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+            </section>
+            <!-- Final do formulário de cadastro de novos usuários -->
 
     </main>
 
@@ -190,7 +189,8 @@
             jQuery.validator.setDefaults({
                 success: "valid"
             });
-            $("#formRegistro").validate({ss
+            $("#formRegistro").validate({
+        
                 rules: {
                     senhaDoUsuario: "required",
                     senhaUsuarioConfirmar: {
@@ -223,6 +223,35 @@
             $("#btnRegistrado2").click(function() {
                 $("#caixaLogin").show();
                 $("#caixaRegistro").hide();
+            });
+
+            //Cadastro de novo usuário
+            $("#btnRegistrar").click(function(e) {
+                if(document
+                    .querySelector("#formRegistro")
+                    .checkValidity()){
+                        e.preventDefault();//Não abrir outra página
+                        //Envio dos dados via ajax
+                        $.ajax({
+                            url: 'recebe_dados.php',
+                            method: 'post',
+                            data: $("#formRegistro").serialize()+'&action=cadastro',
+                            success:function(resposta){
+                                $("#alerta").show();
+                                $(".resultado").html(resposta);
+                            }
+                        });
+                }
+            
+                return true;
+            });
+            //Login
+            $("#btnEntrar").click(function(e) {
+
+            });
+            //Recuperação de senha
+            $("#btnGerar").click(function(e) {
+
             });
         });
 
