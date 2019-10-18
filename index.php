@@ -226,31 +226,28 @@
                         }
                     });
                 }
-
+                return true;
+            });
+            //Recuperação de senha
+            $("#btnGerar").click(function(e) {
+                if (document
+                    .querySelector("#formSenha")
+                    .checkValidity()) {
+                    e.preventDefault(); //Não abrir outra págin
+                    //Envio dos dados via Ajax
+                    $.ajax({
+                        url: 'recebe_dados.php',
+                        method: 'post',
+                        data: $("#formSenha").serialize() + '&action=senha',
+                        success: function(resposta) {
+                            $("#alerta").show();
+                            $(".resultado").html(resposta);
+                        }
+                    });
+                }
                 return true;
             });
         });
-        //Recuperação de senha
-        $("#btnGerar").click(function(e) {
-            if (document
-                .querySelector("#formSenha")
-                .checkValidity()) {
-                e.preventDefault(); //Não abrir outra págin
-                //Envio dos dados via Ajax
-                $.ajax({
-                    url: 'recebe_dados.php',
-                    method: 'post',
-                    data: $("#formSenha").serialize() + '&action=senha',
-                    success: function(resposta) {
-                        $("#alerta").show();
-                        $(".resultado").html(resposta);
-                    }
-                });
-            }
-
-            return true;
-        });
-
         /*
          * Translated default messages for the jQuery validation plugin.
          * Locale: PT_BR
