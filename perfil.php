@@ -1,3 +1,8 @@
+<?php
+    require_once "session.php";
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,7 +39,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Sobre</a>
                         <a class="dropdown-item" href="#">Fotos</a>
-                        <a class="dropdown-item" href="#">Sair</a>
+                        <a class="dropdown-item" href="sair.php">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -43,7 +48,7 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Bem-vindo</h1>
+            <h1 class="display-4">Boas vindas</h1>
 
             <h2 class="display-2 text-center rounded p-1"
             style="background-color: deepSkyBlue; color:Aqua;">

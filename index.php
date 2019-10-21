@@ -214,7 +214,7 @@
                 if (document
                     .querySelector("#formLogin")
                     .checkValidity()) {
-                    e.preventDefault(); //Não abrir outra págin
+                    e.preventDefault(); //Não abrir outra página
                     //Envio dos dados via Ajax
                     $.ajax({
                         url: 'recebe_dados.php',
@@ -223,6 +223,12 @@
                         success: function(resposta) {
                             $("#alerta").show();
                             $(".resultado").html(resposta);
+                            //$(".resultado").html(resposta);
+                            if (resposta === "ok") {
+                                window.location = "perfil.php";
+                            } else {
+                                $(".resultado").html(resposta);
+                            }
                         }
                     });
                 }
