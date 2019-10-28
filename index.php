@@ -42,30 +42,23 @@
                 </h2>
                 <form action="#" method="post" class="p-2" id="formLogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario"
-                        placeholder="Nome de Usuário" class="form-control"
-                        required minlength="5" value="<?= 
-                        isset($_COOKIE['nomeDoUsuario'])?$_COOKIE['nomeDoUsuario']:"";
-                        ?>">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?=
+                                                                                                                                                                    isset($_COOKIE['nomeDoUsuario']) ? $_COOKIE['nomeDoUsuario'] : "";
+                                                                                                                                                                ?>">
 
                     </div>
 
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" 
-                        id="senhaUsuario" placeholder="Senha" 
-                        class="form-control" required minlength="6"
-                        value="<?= 
-                        isset($_COOKIE['senhaDoUsuario'])?$_COOKIE['senhaDoUsuario']:"";
-                        ?>">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?=
+                                                                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? $_COOKIE['senhaDoUsuario'] : "";
+                                                                                                                                                            ?>">
                     </div>
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            
-                            <input type="checkbox" name="lembrar" id="lembrar"
-                            class="custom-control-input"
-                            <?= isset($_COOKIE['senhaDoUsuario'])?" checked":""; ?>>
+
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" <?= isset($_COOKIE['senhaDoUsuario']) ? " checked" : ""; ?>>
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
                             </label>
@@ -84,10 +77,93 @@
                             </a>
                         </p>
                     </div>
+
+                    <div class="form-group">
+                        <p class="text-center">
+                            <a href="#" id="btnEnviarNovo">
+                                Mostrar
+                            </a>
+                        </p>
+                    </div>
+
+
+
                 </form>
             </div>
         </section>
         <!-- Final da Seção de Login-->
+
+        <!-- Início do Formulário Novo -->
+        <section class="row mt-5">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaNovo">
+                <h2 class="text-center mt-2">Formulário Novo</h2>
+                <form action="#" method="post" class="p-2" id="formNovo">
+                    <div class="form-group">
+                        <input type="text" name="nomeCompletoNovo" id="nomeCompletoNovo" class="form-control" placeholder="Nome completo" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="emailNovo" id="emailNovo" class="form-control" placeholder="E-mail" required minlength="5">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" name="dataNiverNovo" id="dataNiverNovo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="urlRedeSocial" id="urlRedeSocial" class="form-control" placeholder="URL da Rede Social" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="urlImagemNovo" id="urlImagemNovo" class="form-control" placeholder="URL de Imagem" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select class="form-control" name="estado" id="estado">
+                            <option></option>
+                            <option value="PR">Paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-control" name="cidade" id="cidade">
+                            <option></option>
+                            <option value="Brusque">Brusque</option>
+                            <option value="Guabiruba">Guabiruba</option>
+                            <option value="Itajaí">Itajaí</option>
+                            <option value="Gaspar">Gaspar</option>
+                            <option value="Botuverá">Botuverá</option>
+                            <option value="Nova Trento">Nova Trento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
+                            <label for="concordar" class="custom-control-label">
+                                Eu concordo com <a href="#">
+                                    os termos e condições.</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="::Enviar::" name="btnEnviarNovo" id="btnEnviarNovo" class="btn btn-primary btn-block">
+                    </div>
+
+                    <div class="form-group">
+                        <p class="text-center">
+                            Já registrado?
+                            <a href="#" id="btnJaRegistrado2">
+                                Entrar por aqui.
+                            </a>
+
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Final do Formulário Novo -->
+
         <!-- Formulário de Recuperação de Senha -->
         <section class="row mt-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
@@ -189,6 +265,7 @@
             });
             $("#formLogin").validate();
             $("#formSenha").validate();
+            $("#formNovo").validate();
             //Mostrar e Ocultar Formulários
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
@@ -206,6 +283,13 @@
                 $("#caixaLogin").show(); //Mostrar
                 $("#caixaRegistro").hide(); //Ocultar
             });
+
+            $("btnEnviarNovo").click(function() {
+                $("#caixaLogin").hide(); //Ocultar Login
+                $("#caixaNovo").show(); //Mostrar Form Novo
+            });
+
+
             //Cadastro de novo usuário
             $("#btnRegistrar").click(function(e) {
                 if (document
