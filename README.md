@@ -1,6 +1,8 @@
 # login
 Sistema de Login em PHP e Javascript
 
+# aula10 - 28/10/2019
+
 # aula09 - 22/10/2019
 - Autenticação do usuário completa
 - Permissão de navegação através da SESSÃO
