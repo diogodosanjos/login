@@ -16,7 +16,8 @@
     <style>
         #alerta,
         #caixaSenha,
-        #caixaRegistro {
+        #caixaRegistro,
+        #caixaNovo {
             display: none;
         }
     </style>
@@ -267,6 +268,11 @@
             $("#formSenha").validate();
             $("#formNovo").validate();
             //Mostrar e Ocultar Formulários
+
+            $("btnEnviarNovo").click(function() {
+                $("#caixaLogin").hide(); //Ocultar Login
+                $("#caixaSenha").show(); //Mostrar Form Novo
+            });
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
                 $("#caixaSenha").show(); //Mostrar Nova Senha
@@ -284,10 +290,6 @@
                 $("#caixaRegistro").hide(); //Ocultar
             });
 
-            $("btnEnviarNovo").click(function() {
-                $("#caixaLogin").hide(); //Ocultar Login
-                $("#caixaNovo").show(); //Mostrar Form Novo
-            });
 
 
             //Cadastro de novo usuário
@@ -334,6 +336,7 @@
                 }
                 return true;
             });
+
             //Recuperação de senha
             $("#btnGerar").click(function(e) {
                 if (document
