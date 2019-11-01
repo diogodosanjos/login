@@ -17,7 +17,7 @@
         #alerta,
         #caixaSenha,
         #caixaRegistro,
-        #caixaNovo {
+        #formularioNovo {
             display: none;
         }
     </style>
@@ -43,19 +43,16 @@
                 </h2>
                 <form action="#" method="post" class="p-2" id="formLogin">
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?=
-                                                                                                                                                                    isset($_COOKIE['nomeDoUsuario']) ? $_COOKIE['nomeDoUsuario'] : "";
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?= isset($_COOKIE['nomeDoUsuario']) ? $_COOKIE['nomeDoUsuario'] : "";
                                                                                                                                                                 ?>">
 
                     </div>
 
-
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?=
-                                                                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? $_COOKIE['senhaDoUsuario'] : "";
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?= isset($_COOKIE['senhaDoUsuario']) ? $_COOKIE['senhaDoUsuario'] : "";
                                                                                                                                                             ?>">
-                    </div>
 
+                    </div>
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
 
@@ -81,89 +78,99 @@
 
                     <div class="form-group">
                         <p class="text-center">
-                            <a href="#" id="btnEnviarNovo">
+                            <a href="#" id="btnMostrar">
                                 Mostrar
                             </a>
                         </p>
                     </div>
-
-
-
                 </form>
             </div>
         </section>
         <!-- Final da Seção de Login-->
 
-        <!-- Início do Formulário Novo -->
+        <!-- Começo do formulário novo-->
         <section class="row mt-5">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaNovo">
-                <h2 class="text-center mt-2">Formulário Novo</h2>
-                <form action="#" method="post" class="p-2" id="formNovo">
-                    <div class="form-group">
-                        <input type="text" name="nomeCompletoNovo" id="nomeCompletoNovo" class="form-control" placeholder="Nome completo" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="emailNovo" id="emailNovo" class="form-control" placeholder="E-mail" required minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <input type="date" name="dataNiverNovo" id="dataNiverNovo" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="url" name="urlRedeSocial" id="urlRedeSocial" class="form-control" placeholder="URL da Rede Social" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <input type="url" name="urlImagemNovo" id="urlImagemNovo" class="form-control" placeholder="URL de Imagem" required minlength="6">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <select class="form-control" name="estado" id="estado">
-                            <option></option>
-                            <option value="PR">Paraná</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="SC">Santa Catarina</option>
-                        </select>
-                    </div>
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="formNovo">
+                <form id="formularioNovo">
+                    <h2 class="text-center mt-5">
+                        Formulário Novo
+                    </h2>
+                    <h2 class="text-center mt-4">
+                        <div class="form-group">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <input type="text" name="nomeCompleto" id="nomeCompleto" required placeholder="Insira aqui o seu Nome Completo" class="form-control">
 
-                    <div class="form-group">
-                        <label for="cidade">Cidade</label>
-                        <select class="form-control" name="cidade" id="cidade">
-                            <option></option>
-                            <option value="Brusque">Brusque</option>
-                            <option value="Guabiruba">Guabiruba</option>
-                            <option value="Itajaí">Itajaí</option>
-                            <option value="Gaspar">Gaspar</option>
-                            <option value="Botuverá">Botuverá</option>
-                            <option value="Nova Trento">Nova Trento</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
-                            <label for="concordar" class="custom-control-label">
-                                Eu concordo com <a href="#">
-                                    os termos e condições.</a>
-                            </label>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="::Enviar::" name="btnEnviarNovo" id="btnEnviarNovo" class="btn btn-primary btn-block">
-                    </div>
 
-                    <div class="form-group">
-                        <p class="text-center">
-                            Já registrado?
-                            <a href="#" id="btnJaRegistrado2">
-                                Entrar por aqui.
-                            </a>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" required placeholder="Insira aqui o seu E-mail" class="form-control">
 
-                        </p>
-                    </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataNiver">Data de aniversário</label>
+                            <input type="date" name="dataNiver" id="dataNiver" class="form-control">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urlFace">Perfil do facebook</label>
+                            <input type="url" name="urlFace" id="urlFace" required placeholder="Insira aqui o endereço do seu perfil do Face" class="form-control">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urlImagem">Imagem de Perfil</label>
+                            <input type="url" name="urlImagem" id="urlImagem" required placeholder="Insira aqui a URL da imagem do seu perfil" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select class="form-control " name="estado" id="estado">
+                                <option></option>
+                                <option value="SC">Rio Grande do Sul</option>
+                                <option value="RS">Santa Catarina</option>
+                                <option value="PR">Paraná</option>
+
                 </form>
             </div>
+            </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <select class="form-control " name="cidade" id="cidade">
+                    <option></option>
+                    <option value="Brusque">Brusque</option>
+                    <option value="Guabiruba">Guabiruba</option>
+                    <option value="Itajaí">Itajaí</option>
+                    <option value="Gaspar">Gaspar</option>
+                    <option value="Boruverá">Botuverá</option>
+                </select>
+
+            </div>
+            <div class="form-group mt-6">
+                <input type="submit" value="::Enviar::" name="btnEnviar" class="btn btn-primary btn-block">
+            </div>
+            <div class="form-control">
+                <p class="text-center mt-1">
+                    <a href="#" id="btnVoltar">
+                        Volta
+                    </a>
+                </p>
+            </div>
+
+
+            </form>
+
+            </div>
+            <!-- Fim da coluna-->
         </section>
-        <!-- Final do Formulário Novo -->
+
+        <!-- Final do formulário novo-->
 
         <!-- Formulário de Recuperação de Senha -->
         <section class="row mt-5">
@@ -203,19 +210,24 @@
                 <h2 class="text-center mt-2">Registre-se aqui</h2>
                 <form action="#" method="post" class="p-2" id="formRegistro">
                     <div class="form-group">
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Insira aqui o seu Nome Completo" required minlength="6">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
+                        <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Insira aqui o seu Nome de Usuário" required minlength="5">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
+                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="Insira aqui o seu E-mail" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
+                        <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Insira aqui a sua Senha" required minlength="6">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
+                        <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirme a sua senha" required minlength="6">
+
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="urlPerfil" id="urlPerfil" required placeholder="Endereço da imagem do seu perfil" class="form-control">
+
                     </div>
                     <div class="form-group mt-4">
                         <div class="custom-control custom-checkbox">
@@ -268,11 +280,11 @@
             $("#formSenha").validate();
             $("#formNovo").validate();
             //Mostrar e Ocultar Formulários
-
-            $("btnEnviarNovo").click(function() {
+            $("#btnMostrar").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
-                $("#caixaSenha").show(); //Mostrar Form Novo
+                $("#formularioNovo").show(); //Mostrar Novo formulário
             });
+
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide(); //Ocultar Login
                 $("#caixaSenha").show(); //Mostrar Nova Senha
@@ -281,17 +293,19 @@
                 $("#caixaSenha").hide(); //Ocultar Gerar NovaSenha
                 $("#caixaLogin").show(); //Mostrar caixa Login
             });
+
             $("#btnRegistrarNovo").click(function() {
                 $("#caixaLogin").hide(); //Ocultar
                 $("#caixaRegistro").show(); //Mostrar
             });
             $("#btnJaRegistrado2").click(function() {
-                $("#caixaLogin").show(); //Mostrar
-                $("#caixaRegistro").hide(); //Ocultar
+                $("#caixaLogin").show(); //Ocultar Gerar NovaSenha
+                $("#caixaRegistro").hide(); //Mostrar caixa Login
             });
-
-
-
+            $("#btnVoltar").click(function() {
+                $("#caixaLogin").show(); //Mostrar login
+                $("#formularioNovo").hide(); //Ocultar formulário novo
+            });
             //Cadastro de novo usuário
             $("#btnRegistrar").click(function(e) {
                 if (document
@@ -316,7 +330,7 @@
                 if (document
                     .querySelector("#formLogin")
                     .checkValidity()) {
-                    e.preventDefault(); //Não abrir outra página
+                    e.preventDefault(); //Não abrir outra págin
                     //Envio dos dados via Ajax
                     $.ajax({
                         url: 'recebe_dados.php',
@@ -324,7 +338,6 @@
                         data: $("#formLogin").serialize() + '&action=login',
                         success: function(resposta) {
                             $("#alerta").show();
-                            $(".resultado").html(resposta);
                             //$(".resultado").html(resposta);
                             if (resposta === "ok") {
                                 window.location = "perfil.php";
@@ -336,6 +349,7 @@
                 }
                 return true;
             });
+
 
             //Recuperação de senha
             $("#btnGerar").click(function(e) {

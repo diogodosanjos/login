@@ -28,6 +28,7 @@ if(isset($_POST['action'])){
         $senhaDoUsuario = verificar_entrada($_POST['senhaDoUsuario']);
         $senhaUsuarioConfirmar = 
         verificar_entrada($_POST['senhaUsuarioConfirmar']);
+        $urlPerfil = verificar_entrada($_POST['urlPerfil']);
         $dataCriado = date("Y-m-d");//Data atual no formato Banco de Dados
 
         //Codificando as senhas
@@ -63,7 +64,7 @@ if(isset($_POST['action'])){
                 nomeCompleto, emailUsuario, senhaDoUsuario, dataCriado)
                 values(?, ?, ?, ?, ?)");
                 $sql->bind_param("sssss", $nomeDoUsuario, $nomeCompleto, 
-                $emailUsuario, $senhaCodificada, $dataCriado);
+                $emailUsuario, $senhaCodificada, $dataCriado, $urlPerfil);
                 if($sql->execute()){
                     echo "<p class='text-success'>Usuário cadastrado</p>";
                 }else{

@@ -1,6 +1,6 @@
 <?php
-    require_once "session.php";
-    
+require_once "session.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -50,19 +50,21 @@
         <div class="container">
             <h1 class="display-4">Boas vindas</h1>
 
-            <h2 class="display-2 text-center rounded p-1"
-            style="background-color: deepSkyBlue; color:Aqua;">
+            <h2 class="display-2 text-center rounded p-1" style="background-color: deepSkyBlue; color:Aqua;">
                 <?= $nomeCompleto ?>
             </h2>
             <h2 class="text-center">
                 E-mail do Usuário:
-                <a href="mailto:<?=$emailUsuario?>">
-                    <?=$emailUsuario?>
+                <a href="mailto:<?= $emailUsuario ?>">
+                    <?= $emailUsuario ?>
                 </a>
             </h2>
             <h2 class="text-center">
                 Registrado em: <?= $dataCriado ?>
             </h2>
+
+
+
         </div>
     </div>
 
