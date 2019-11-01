@@ -53,6 +53,7 @@ require_once "session.php";
             <h2 class="display-2 text-center rounded p-1" style="background-color: deepSkyBlue; color:Aqua;">
                 <?= $nomeCompleto ?>
             </h2>
+            
             <h2 class="text-center">
                 E-mail do Usuário:
                 <a href="mailto:<?= $emailUsuario ?>">

@@ -228,6 +228,9 @@
                     <div class="form-group">
                         <input type="url" name="urlPerfil" id="urlPerfil" required placeholder="Endereço da imagem do seu perfil" class="form-control">
 
+                        
+
+
                     </div>
                     <div class="form-group mt-4">
                         <div class="custom-control custom-checkbox">
