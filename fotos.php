@@ -18,28 +18,33 @@ require_once "session.php";
 
 <body>
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="=img/coalabelo.jpg" alt="Primeiro Slide">
+                <img src="img/coalabelo.jpg" class="d-block w-100" alt="Primeiro Slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="=img/porquinhoindia.jpg" alt="Segundo Slide">
+                <img src="img/porquinhoindia.jpg" class="d-block w-100" alt="Segundo Slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="img/rottweiler.jpg"=Terceiro Slide" alt="Terceiro Slide">
+                <img src="img/rottweiler.jpg" class="d-block w-100" alt="Terceiro Slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
+            <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
+            <span class="sr-only">Next</span>
         </a>
     </div>
-
+    </div>
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
