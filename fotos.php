@@ -1,3 +1,7 @@
+<?php
+require_once "session.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,13 +21,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="=Primeiro Slide" alt="Primeiro Slide">
+                <img class="d-block w-100" src="=img/coalabelo.jpg" alt="Primeiro Slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="=Segundo Slide" alt="Segundo Slide">
+                <img class="d-block w-100" src="=img/porquinhoindia.jpg" alt="Segundo Slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="=Terceiro Slide" alt="Terceiro Slide">
+                <img class="d-block w-100" src="img/rottweiler.jpg"=Terceiro Slide" alt="Terceiro Slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

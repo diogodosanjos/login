@@ -26,19 +26,23 @@ require_once "session.php";
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <!-- "ml-auto" manda para a direita -->
+
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Destaques</a>
                 </li>
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $nomeDoUsuario ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Sobre</a>
-                        <a class="dropdown-item" href="#">Fotos</a>
+                        <a class="dropdown-item" href="fotos.php">Fotos</a>
                         <a class="dropdown-item" href="sair.php">Sair</a>
                     </div>
                 </li>
@@ -53,21 +57,25 @@ require_once "session.php";
             <h2 class="display-2 text-center rounded p-1" style="background-color: deepSkyBlue; color:Aqua;">
                 <?= $nomeCompleto ?>
             </h2>
-            
-            <h2 class="text-center">
-                E-mail do Usuário:
-                <a href="mailto:<?= $emailUsuario ?>">
-                    <?= $emailUsuario ?>
-                </a>
-            </h2>
-            <h2 class="text-center">
-                Registrado em: <?= $dataCriado ?>
-            </h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="<?= $urlPerfil ?>" width="400px" alt=foto>
+                </div>
 
-
-
+                <div class="col-8">
+                    <h2 class="text-center">
+                        E-mail do Usuário: <a href="mailto:<?= $emailUsuario ?>">
+                            <?= $emailUsuario ?>
+                        </a>
+                    </h2>
+                    <h2 class="text-center">
+                        Registrado em: <?= $dataCriado ?>
+                    </h2>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
