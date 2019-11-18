@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2019 às 21:27
+-- Tempo de geração: 18-Nov-2019 às 20:15
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -39,10 +39,19 @@ CREATE TABLE `usuario` (
   `emailUsuario` varchar(45) NOT NULL,
   `senhaDoUsuario` char(40) NOT NULL,
   `dataCriado` date NOT NULL,
-  `URL`     varchar(200) NOT NULL
-  
-  
+  `URL` varchar(200) NOT NULL,
+  `token` char(10) NOT NULL,
+  `tempoDeVida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeDoUsuario`, `emailUsuario`, `senhaDoUsuario`, `dataCriado`, `URL`, `token`, `tempoDeVida`) VALUES
+(1, 'Diogo dos Anjos', 'diogoid', 'dodogeremias@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-18', 'https://cachorrosincriveis.com.br/wp-content/uploads/2018/07/filhote-de-rottweiler-1-696x464.jpg', '', '2019-11-18 22:08:36'),
+(2, 'Diego Geremias', 'diegozt', 'diegozt@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-18', 'https://cdn.hipercultura.com/imagens/8190118509-e9142448fc-k-cke.jpg', '', '2019-11-18 22:08:36'),
+(3, 'Marco AntÃ´nio', 'marco', 'marcoant@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-11-18', 'https://d168rbuicf8uyi.cloudfront.net/wp-content/uploads/2019/06/13145802/sonhar-com-leao-1024x649.jpg', '', '2019-11-18 22:10:23');
 
 --
 -- Índices para tabelas despejadas
@@ -64,7 +73,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
