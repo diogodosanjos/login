@@ -120,11 +120,23 @@ if(isset($_POST['action'])){
 
     }else if($_POST['action'] =='senha'){
         //Senão, teste se ação é recuperar senha
-        echo "\n<p>senha</p>";
-        echo "\n<pre>"; //Pré-formatar
-        print_r($_POST);
-        echo "\n<\pre>";
-        
+        $email = verificar_entrada($_POST['emailGerarSenha']);
+        $sql = $connect->prepare("SELECT idUsuario FROM usuario
+        WHERE emailUsuario = ?");
+        $sql->bind_param("s", $email);
+        $sql->execute();
+        $resposta = $sql->get_result();
+        if($resposta->num_rows > 0){
+            //echo "E-mail encontrado!"
+            $frase = "110232392133423sksdadjaskjdhdadahfsdfdfsghhfhdhhh";
+            $palavra_secreta = str_shuffle($frase);
+            $token = substr($palavra_secreta,0,10);
+            //echo "Token: $token";
+            $sql = $connect->prepare();
+        }
+        else{
+            echo "E-mail não foi encontrado!";
+        }
     }else{
     header ("location:index.php");
     }
