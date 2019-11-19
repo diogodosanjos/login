@@ -132,7 +132,12 @@ if(isset($_POST['action'])){
             $palavra_secreta = str_shuffle($frase);
             $token = substr($palavra_secreta,0,10);
             //echo "Token: $token";
-            $sql = $connect->prepare();
+            $sql = $connect->prepare("UPDATE usuario SET token=?,
+            tempoDeVida=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE
+            emailUsuario = ?");
+            $sql->bind_param("ss", $token, $email);
+            $sql->execute();
+            echo "Token no Banco de Dados!";
         }
         else{
             echo "E-mail não foi encontrado!";
